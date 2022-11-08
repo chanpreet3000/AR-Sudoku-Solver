@@ -43,7 +43,6 @@ def find_board(img):
     contours  = imutils.grab_contours(keypoints)
 
     newimg = cv2.drawContours(img.copy(), contours, -1, (0, 255, 0), 3)
-    cv2.imshow("Contour", newimg)
 
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:15]
     location = None
@@ -125,7 +124,6 @@ def solveTheSudoku(img):
         inv = get_InvPerspective(img, solved_board_mask, location)
         # cv2.imshow("Inverse Perspective", inv)
         combined = cv2.addWeighted(img, 0.7, inv, 1, 0)
-        cv2.imshow("Final result", combined)
         # cv2.waitKey(0)
         return board, combined; 
     except:

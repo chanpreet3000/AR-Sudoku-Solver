@@ -70,7 +70,6 @@ def split_boxes(board):
             # cv2.imshow("Splitted block", box)
             # cv2.waitKey(50)
             boxes.append(box)
-    cv2.destroyAllWindows()
     return boxes
 
 def displayNumbers(img, numbers, color=(0, 255, 0)):

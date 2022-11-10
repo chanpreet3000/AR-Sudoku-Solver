@@ -11,7 +11,7 @@ input_size = 48
 
 st.set_page_config(page_title='AR Sudoku Solver')
 st.title("Augumented Reality Sudoku Solver")
-st.subheader("Feed me Sudoku Daddy.")
+st.subheader("Feed me Sudoku.")
 
 def get_perspective(img, location, height = 900, width = 900):
     """Takes an image and location os interested region.

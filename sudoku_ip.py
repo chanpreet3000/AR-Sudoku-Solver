@@ -8,8 +8,6 @@ classes = np.arange(0, 10)
 model = load_model('ocr_model.h5')
 input_size = 48
 
-
-
 def get_perspective(img, location, height = 900, width = 900):
     """Takes an image and location os interested region.
         And return the only the selected region with a perspective transformation"""

@@ -15,6 +15,7 @@ if image_file is not None:
       f.write(image_file.getbuffer())      
     st.success("Saved File")
     img = cv2.imread(loc)
+    img = cv2.resize(img, (512, 512))
     st.image(img, width=500, caption="Input Sudoku")
     wrapImage, solvedImage  = solveTheSudoku(img)
     if(wrapImage is not None and solvedImage is not None):

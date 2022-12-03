@@ -3,9 +3,10 @@ def find_empty(board):
     for i in range(len(board)):
         for j in range(len(board[0])):
             if board[i][j] == 0:
-                return (i, j)  # row, col
+                return (i, j)
 
     return None
+
 
 def valid(board, num, pos):
     # Check row
@@ -24,32 +25,49 @@ def valid(board, num, pos):
 
     for i in range(box_y*3, box_y*3 + 3):
         for j in range(box_x * 3, box_x*3 + 3):
-            if board[i][j] == num and (i,j) != pos:
+            if board[i][j] == num and (i, j) != pos:
+                return False
+
+    return True
+
+def check(bo):
+    for i in range(9):
+        map = [0] * 10
+        for j in range(9):
+            if (bo[i][j] != 0):
+                map[bo[i][j]] += 1
+        for val in map:
+            if (val > 1):
+                return False
+
+    for j in range(9):
+        map = [0] * 10
+        for i in range(9):
+            if (bo[i][j] != 0):
+                map[bo[i][j]] += 1
+        for val in map:
+            if (val > 1):
+                return False
+    return True
+
+
+def solve(bo):
+    for i in range(9):
+        for j in range(9):
+            if bo[i][j] == 0:
+                for num in range(1, 10):
+                    if (valid(bo, num, (i, j))):
+                        bo[i][j] = num
+                        if (solve(bo)):
+                            return True
+                        bo[i][j] = 0
                 return False
 
     return True
 
 
-def solve(board):
-    find = find_empty(board)
-    if not find:
-        return True
-    else:
-        row, col = find
-
-    for i in range(1,10):
-        if valid(board, i, (row, col)):
-            board[row][col] = i
-
-            if solve(board):
-                return True
-            board[row][col] = 0
-    return False
-
-
 def get_board(bo):
-    """Takes a 9x9 matrix unsolved sudoku board and returns a fully solved board."""
-    if solve(bo):
+    if (check(bo) and solve(bo)):
         return bo
     else:
         raise ValueError

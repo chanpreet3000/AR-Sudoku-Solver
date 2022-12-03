@@ -163,11 +163,13 @@ def solveSudoku(img):
         if (len(combined) != 0):
             return combined
     return img
+
+
 vid = cv2.VideoCapture(0)
 while (True):
     ret, frame = vid.read()
     cv2.imshow("Input", frame)
-    combined = solve(frame)
+    combined = solveSudoku(frame)
     cv2.imshow("Output", frame)
     if (len(combined) != 0):
         cv2.imshow("Output", combined)

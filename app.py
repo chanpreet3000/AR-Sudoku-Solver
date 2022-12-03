@@ -8,22 +8,16 @@ st.subheader("Introduction.")
 st.write(introduction)
 st.subheader("Feed me Sudoku.")
 
-
 run = st.checkbox('RESET SUDOKU')
-# FRAME_WINDOW = st.image([])
-OUTPUT_WINDOW = st.image([])
 camera = cv2.VideoCapture(0)
 
 
 while run:
     _, frame = camera.read()
-    if(frame is not None):
+    if (frame is not None):
         output = solveSudoku(frame)
-        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         output = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
-        # FRAME_WINDOW.image(frame)
-        OUTPUT_WINDOW.image(output)
-
+        st.image(output)
 else:
     st.write('Sudoku Reset')
     resetSudoku()

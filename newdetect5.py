@@ -153,7 +153,7 @@ def solve(frame):
 
 
 def solveSudoku(img):
-    if (len(img) != 0):
+    if (img.all() is None or len(img) != 0 ):
         combined = solve(img)
         if (len(combined) != 0):
             return combined

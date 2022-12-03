@@ -152,23 +152,29 @@ def solve(frame):
     return []
 
 
+def resetSudoku():
+    global solved_sudoku_board
+    solved_sudoku_board = []
+
+
 def solveSudoku(img):
     if (len(img) != 0):
         combined = solve(img)
         if (len(combined) != 0):
             return combined
     return img
-# vid = cv2.VideoCapture(0)
-# while (True):
-#     ret, frame = vid.read()
-#     cv2.imshow("Input", frame)
-#     combined = solve(frame)
-#     cv2.imshow("Output", frame)
-#     if (len(combined) != 0):
-#         cv2.imshow("Output", combined)
+vid = cv2.VideoCapture(0)
+while (True):
+    ret, frame = vid.read()
+    cv2.imshow("Input", frame)
+    combined = solve(frame)
+    cv2.imshow("Output", frame)
+    if (len(combined) != 0):
+        cv2.imshow("Output", combined)
+    # resetSudoku()
 
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-# vid.release()
-# cv2.destroyAllWindows()
+vid.release()
+cv2.destroyAllWindows()

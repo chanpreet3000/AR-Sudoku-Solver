@@ -165,18 +165,18 @@ def solveSudoku(img):
     return img
 
 
-vid = cv2.VideoCapture(0)
-while (True):
-    ret, frame = vid.read()
-    cv2.imshow("Input", frame)
-    combined = solveSudoku(frame)
-    cv2.imshow("Output", frame)
-    if (len(combined) != 0):
-        cv2.imshow("Output", combined)
-    # resetSudoku()
+# vid = cv2.VideoCapture(0)
+# while (True):
+#     ret, frame = vid.read()
+#     cv2.imshow("Input", frame)
+#     combined = solveSudoku(frame)
+#     cv2.imshow("Output", frame)
+#     if (len(combined) != 0):
+#         cv2.imshow("Output", combined)
+#     # resetSudoku()
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+#     if cv2.waitKey(1) & 0xFF == ord('q'):
+#         break
 
-vid.release()
-cv2.destroyAllWindows()
+# vid.release()
+# cv2.destroyAllWindows()

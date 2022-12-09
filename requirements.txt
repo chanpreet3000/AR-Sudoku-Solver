@@ -1,8 +1,9 @@
 av
 imutils
 numpy
-opencv_python
+opencv-python-headless
 Pillow
 streamlit
 streamlit_webrtc
 tensorflow
+

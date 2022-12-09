@@ -1,7 +1,7 @@
 av
 imutils
 numpy
-opencv_python==
+opencv_python
 Pillow
 streamlit
 streamlit_webrtc

@@ -1,8 +1,8 @@
-av==9.2.0
-imutils==0.5.4
-numpy==1.23.3
-opencv_python==4.6.0.66
-Pillow==9.3.0
-streamlit==1.14.0
-streamlit_webrtc==0.44.0
-tensorflow==2.10.0
+av
+imutils
+numpy
+opencv_python==
+Pillow
+streamlit
+streamlit_webrtc
+tensorflow

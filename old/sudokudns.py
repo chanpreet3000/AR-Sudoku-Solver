@@ -8,7 +8,6 @@ model = tensorflow.keras.models.load_model('ocr_model.h5')
 height, width = 630, 630
 input_size = 48
 
-
 def get_InvPerspective(img, masked_num, location):
     pts1 = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
     pts2 = np.float32([location[0], location[3], location[1], location[2]])
@@ -146,10 +145,6 @@ def solve(frame):
 
     return []
 
-
-def resetSudoku():
-    global solved_sudoku_board
-    solved_sudoku_board = []
 
 
 def solveSudoku(img):

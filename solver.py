@@ -6,6 +6,7 @@ def find_empty(board):
                 return (i, j)
 
     return None
+    ##empty
 
 
 def valid(board, num, pos):
@@ -36,13 +37,17 @@ def check(bo):
         for j in range(9):
             if (bo[i][j] != 0):
                 map[bo[i][j]] += 1
+                ##mp should have row unique 
         for val in map:
             if (val > 1):
                 return False
+                ##initial check if its given right or not the sudoko is checked
+
 
     for j in range(9):
         map = [0] * 10
         for i in range(9):
+            #map should have unique column
             if (bo[i][j] != 0):
                 map[bo[i][j]] += 1
         for val in map:
@@ -64,10 +69,14 @@ def solve(bo):
                 return False
 
     return True
+    ##recursion and backtrack
 
 
 def get_board(bo):
     if (check(bo) and solve(bo)):
+        ##check intial state and solve state if both are true then return true
         return bo
     else:
         raise ValueError
+        ##else valueerror is given
+        
